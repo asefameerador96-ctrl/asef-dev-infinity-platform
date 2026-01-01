@@ -2,111 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Linea E-commerce Design System - Minimalist & Modern */
+/* Infinity Platform Design System - Vibrant GenZ Neon Futuristic */
 
 @layer base {
   :root {
-    /* Core neutral palette */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
-    
-    /* Status bar */
-    --status-bar: 0 0% 0%;
-    --status-bar-foreground: 0 0% 100%;
-    
-    /* Navigation */
-    --nav-background: 0 0% 100%;
-    --nav-foreground: 0 0% 20%;
-    --nav-hover: 0 0% 5%;
-    
-    /* Interactive elements */
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --primary-hover: 0 0% 15%;
-    
-    /* Subtle elements */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 20%;
-    
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-    
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 9%;
-    
-    /* Cards and surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --radius: 0.375rem;
-    
-    /* Transitions */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 0 0% 9%;
+    /* Core dark theme - default */
+    --background: 240 10% 4%;
     --foreground: 0 0% 98%;
     
-    --status-bar: 0 0% 0%;
-    --status-bar-foreground: 0 0% 100%;
+    /* Neon accent colors */
+    --neon-magenta: 320 100% 60%;
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 270 100% 65%;
+    --neon-pink: 330 100% 65%;
+    --neon-blue: 210 100% 60%;
+    --neon-green: 150 100% 50%;
     
-    --nav-background: 0 0% 9%;
-    --nav-foreground: 0 0% 80%;
-    --nav-hover: 0 0% 95%;
+    /* Brand colors */
+    --nova: 270 100% 65%;
+    --nova-glow: 280 100% 70%;
+    --xforce: 0 100% 60%;
+    --xforce-glow: 15 100% 65%;
+    --live-moment: 45 100% 55%;
+    --live-moment-glow: 50 100% 60%;
     
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --primary-hover: 0 0% 90%;
+    /* Primary - Neon Magenta */
+    --primary: 320 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 320 100% 70%;
+    --primary-glow: 320 100% 50%;
     
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 80%;
+    /* Secondary - Deep space */
+    --secondary: 240 15% 12%;
+    --secondary-foreground: 0 0% 90%;
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 60%;
     
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent - Neon Cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 4%;
     
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 98%;
+    --border: 240 10% 20%;
+    --input: 240 10% 15%;
+    --ring: 320 100% 60%;
     
-    --card: 0 0% 9%;
+    /* Cards and surfaces */
+    --card: 240 12% 8%;
     --card-foreground: 0 0% 98%;
+    --card-glow: 240 15% 12%;
     
-    --popover: 0 0% 9%;
+    --popover: 240 12% 8%;
     --popover-foreground: 0 0% 98%;
     
-    --destructive: 0 62% 50%;
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 98%;
+    
+    --radius: 0.5rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 100% 60%), hsl(270 100% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(180 100% 50%), hsl(210 100% 60%));
+    --gradient-nova: linear-gradient(135deg, hsl(270 100% 65%), hsl(280 100% 70%));
+    --gradient-xforce: linear-gradient(135deg, hsl(0 100% 60%), hsl(15 100% 65%));
+    --gradient-live: linear-gradient(135deg, hsl(45 100% 55%), hsl(50 100% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 10% 4%), hsl(240 15% 8%));
+    
+    /* Shadows */
+    --shadow-neon: 0 0 30px hsl(320 100% 60% / 0.4);
+    --shadow-glow: 0 0 60px hsl(180 100% 50% / 0.3);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 240 12% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 320 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 15% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 320 100% 60%;
+  }
+
+  /* Light mode override if needed */
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --border: 240 5% 85%;
+    --muted: 240 5% 92%;
+    --muted-foreground: 240 5% 40%;
   }
 }
 
@@ -115,7 +104,177 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-light;
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(180deg, hsl(240 10% 4%), hsl(240 15% 6%));
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(240 10% 8%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(320 100% 60% / 0.5);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(320 100% 60% / 0.7);
+  }
+}
+
+@layer components {
+  /* Neon glow effects */
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5),
+                0 0 40px hsl(var(--primary) / 0.3),
+                0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.8),
+                 0 0 20px hsl(var(--primary) / 0.5),
+                 0 0 30px hsl(var(--primary) / 0.3);
+  }
+
+  .neon-border {
+    border: 1px solid hsl(var(--primary) / 0.5);
+    box-shadow: inset 0 0 20px hsl(var(--primary) / 0.1),
+                0 0 20px hsl(var(--primary) / 0.2);
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(240 12% 8% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.1);
+  }
+
+  .glass-strong {
+    background: hsl(240 12% 8% / 0.85);
+    backdrop-filter: blur(30px);
+    border: 1px solid hsl(0 0% 100% / 0.15);
+  }
+
+  /* Animated gradient background */
+  .gradient-animate {
+    background: linear-gradient(-45deg, 
+      hsl(320 100% 60%), 
+      hsl(270 100% 65%), 
+      hsl(180 100% 50%), 
+      hsl(210 100% 60%));
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Infinity logo animation */
+  .infinity-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-infinity 3s ease-in-out infinite;
+  }
+
+  @keyframes draw-infinity {
+    0% { stroke-dashoffset: 1000; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -1000; }
+  }
+
+  /* Brand specific styles */
+  .brand-nova {
+    --brand-color: var(--nova);
+    --brand-glow: var(--nova-glow);
+  }
+
+  .brand-xforce {
+    --brand-color: var(--xforce);
+    --brand-glow: var(--xforce-glow);
+  }
+
+  .brand-live {
+    --brand-color: var(--live-moment);
+    --brand-glow: var(--live-moment-glow);
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Parallax container */
+  .parallax-container {
+    perspective: 1000px;
+    overflow: hidden;
+  }
+
+  /* Video overlay */
+  .video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      hsl(240 10% 4% / 0.3) 0%,
+      hsl(240 10% 4% / 0.5) 50%,
+      hsl(240 10% 4% / 0.9) 100%
+    );
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(320 100% 60%), hsl(270 100% 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, hsl(180 100% 50%), hsl(210 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-nova {
+    background: linear-gradient(135deg, hsl(270 100% 65%), hsl(280 100% 70%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-xforce {
+    background: linear-gradient(135deg, hsl(0 100% 60%), hsl(15 100% 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-live {
+    background: linear-gradient(135deg, hsl(45 100% 55%), hsl(50 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

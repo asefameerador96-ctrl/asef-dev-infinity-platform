@@ -1,25 +1,21 @@
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
-import LargeHero from "../components/content/LargeHero";
-import FiftyFiftySection from "../components/content/FiftyFiftySection";
-import OneThirdTwoThirdsSection from "../components/content/OneThirdTwoThirdsSection";
-import ProductCarousel from "../components/content/ProductCarousel";
-import EditorialSection from "../components/content/EditorialSection";
+import InfinityNav from "../components/infinity/InfinityNav";
+import InfinityFooter from "../components/infinity/InfinityFooter";
+import HeroSection from "../components/infinity/HeroSection";
+import BrandChapterRail from "../components/infinity/BrandChapterRail";
+import BrandTiles from "../components/infinity/BrandTiles";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <InfinityNav />
       
-      <main className="pt-6">
-        <FiftyFiftySection />
-        <ProductCarousel />
-        <LargeHero />
-        <OneThirdTwoThirdsSection />
-        <EditorialSection />
+      <main>
+        <HeroSection />
+        <BrandChapterRail />
+        <BrandTiles />
       </main>
       
-      <Footer />
+      <InfinityFooter />
     </div>
   );
 };
