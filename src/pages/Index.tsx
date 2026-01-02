@@ -4,6 +4,9 @@ import HeroSection from "../components/infinity/HeroSection";
 import BrandChapterRail from "../components/infinity/BrandChapterRail";
 import BrandTiles from "../components/infinity/BrandTiles";
 import LuxurySection from "../components/infinity/LuxurySection";
+import ParallaxShowcase from "../components/infinity/ParallaxShowcase";
+import ParallaxGallery from "../components/infinity/ParallaxGallery";
+import HorizontalScroll from "../components/infinity/HorizontalScroll";
 
 const Index = () => {
   return (
@@ -14,6 +17,9 @@ const Index = () => {
         <HeroSection />
         <BrandChapterRail />
         <BrandTiles />
+        <ParallaxShowcase />
+        <ParallaxGallery />
+        <HorizontalScroll />
         <LuxurySection />
       </main>
       
