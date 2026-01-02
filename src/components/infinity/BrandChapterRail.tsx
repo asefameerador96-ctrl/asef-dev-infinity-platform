@@ -21,7 +21,7 @@ const brands = [
     tagline: "Capture now. Share instantly. Feel everything.",
     description: "For those who live in the present. Every design captures the essence of fleeting moments and makes them eternal.",
     color: "live-moment",
-    path: "/brands/live-the-moment",
+    path: "/brands/live-moment",
     stats: [
       { label: "Products", value: "36" },
       { label: "Collections", value: "9" },
