@@ -2,6 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import novaBrandVideo from "@/assets/nova-brand.mp4";
+import liveMomentBrandVideo from "@/assets/live-moment-brand.mp4";
+import xforceBrandVideo from "@/assets/xforce-brand.mp4";
 
 interface BrandCardProps {
   brand: {
@@ -16,6 +19,12 @@ interface BrandCardProps {
   index: number;
 }
 
+const brandVideos: Record<string, string> = {
+  'nova': novaBrandVideo,
+  'xforce': xforceBrandVideo,
+  'live-moment': liveMomentBrandVideo,
+};
+
 const BrandCard = ({ brand, index }: BrandCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -26,6 +35,7 @@ const BrandCard = ({ brand, index }: BrandCardProps) => {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
+  const videoScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 1.1]);
 
   const getGradientClass = () => {
     switch (brand.color) {
@@ -45,6 +55,15 @@ const BrandCard = ({ brand, index }: BrandCardProps) => {
     }
   };
 
+  const getGlowClass = () => {
+    switch (brand.color) {
+      case 'nova': return 'shadow-[0_0_60px_hsl(320,100%,60%,0.3)]';
+      case 'xforce': return 'shadow-[0_0_60px_hsl(210,100%,60%,0.3)]';
+      case 'live-moment': return 'shadow-[0_0_60px_hsl(45,100%,50%,0.3)]';
+      default: return '';
+    }
+  };
+
   return (
     <motion.div
       ref={cardRef}
@@ -54,7 +73,7 @@ const BrandCard = ({ brand, index }: BrandCardProps) => {
       <Link to={brand.path}>
         <motion.div
           whileHover={{ scale: 1.02 }}
-          className={`glass relative overflow-hidden rounded-3xl border ${getBorderClass()} transition-all duration-500 group`}
+          className={`glass relative overflow-hidden rounded-3xl border ${getBorderClass()} ${getGlowClass()} transition-all duration-500 group`}
         >
           <div className="p-8 md:p-12 lg:p-16 grid md:grid-cols-2 gap-8 items-center min-h-[400px]">
             {/* Left Content */}
@@ -101,14 +120,32 @@ const BrandCard = ({ brand, index }: BrandCardProps) => {
               </motion.div>
             </div>
 
-            {/* Right - Visual Placeholder */}
+            {/* Right - Video Visual */}
             <div className="relative aspect-square rounded-2xl overflow-hidden">
-              <div className={`absolute inset-0 bg-gradient-to-br 
-                ${brand.color === 'nova' ? 'from-nova/20 to-nova-glow/10' : ''}
-                ${brand.color === 'xforce' ? 'from-xforce/20 to-xforce-glow/10' : ''}
-                ${brand.color === 'live-moment' ? 'from-live-moment/20 to-live-moment-glow/10' : ''}
+              <motion.div 
+                style={{ scale: videoScale }}
+                className="absolute inset-0"
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src={brandVideos[brand.color]} type="video/mp4" />
+                </video>
+              </motion.div>
+              
+              {/* Overlay gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-t 
+                ${brand.color === 'nova' ? 'from-nova/20 to-transparent' : ''}
+                ${brand.color === 'xforce' ? 'from-xforce/20 to-transparent' : ''}
+                ${brand.color === 'live-moment' ? 'from-live-moment/20 to-transparent' : ''}
               `} />
-              <div className="absolute inset-0 flex items-center justify-center">
+              
+              {/* Animated ring overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <motion.div
                   animate={{ 
                     rotate: 360,
@@ -118,10 +155,10 @@ const BrandCard = ({ brand, index }: BrandCardProps) => {
                     rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                     scale: { duration: 4, repeat: Infinity }
                   }}
-                  className={`w-32 h-32 rounded-full border-2 
-                    ${brand.color === 'nova' ? 'border-nova/50' : ''}
-                    ${brand.color === 'xforce' ? 'border-xforce/50' : ''}
-                    ${brand.color === 'live-moment' ? 'border-live-moment/50' : ''}
+                  className={`w-32 h-32 rounded-full border-2 opacity-50
+                    ${brand.color === 'nova' ? 'border-nova' : ''}
+                    ${brand.color === 'xforce' ? 'border-xforce' : ''}
+                    ${brand.color === 'live-moment' ? 'border-live-moment' : ''}
                   `}
                 />
               </div>
