@@ -19,12 +19,6 @@ const tiles = [
     color: "xforce",
     path: "/brands/xforce",
     gradient: "from-xforce/30 to-xforce-glow/10"
-  },
-  {
-    name: "INFINITY",
-    color: "primary",
-    path: "/brands",
-    gradient: "from-primary/30 to-accent/10"
   }
 ];
 
@@ -32,7 +26,16 @@ const BrandTiles = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-display text-3xl md:text-4xl font-bold text-center mb-12"
+        >
+          <span className="text-gradient">Explore Our Brands</span>
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {tiles.map((tile, index) => (
             <motion.div
               key={tile.name}
@@ -45,7 +48,7 @@ const BrandTiles = () => {
                 <motion.div
                   whileHover={{ scale: 1.03, y: -5 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`relative aspect-square rounded-2xl overflow-hidden group cursor-pointer
+                  className={`relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer
                     bg-gradient-to-br ${tile.gradient} border border-border/50 hover:border-${tile.color}/50
                     transition-all duration-500
                   `}
@@ -66,11 +69,10 @@ const BrandTiles = () => {
                   {/* Content */}
                   <div className="relative z-10 h-full flex flex-col items-center justify-center p-6">
                     <motion.h3
-                      className={`font-display text-xl md:text-2xl lg:text-3xl font-bold text-center
+                      className={`font-display text-2xl md:text-3xl lg:text-4xl font-bold text-center
                         ${tile.color === 'nova' ? 'text-gradient-nova' : ''}
                         ${tile.color === 'live-moment' ? 'text-gradient-live' : ''}
                         ${tile.color === 'xforce' ? 'text-gradient-xforce' : ''}
-                        ${tile.color === 'primary' ? 'text-gradient' : ''}
                       `}
                     >
                       {tile.name}
@@ -79,14 +81,14 @@ const BrandTiles = () => {
                     <motion.span
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 0.6, y: 0 }}
-                      className="text-xs uppercase tracking-widest mt-2 text-muted-foreground group-hover:text-foreground transition-colors"
+                      className="text-xs uppercase tracking-widest mt-4 text-muted-foreground group-hover:text-foreground transition-colors"
                     >
                       Explore →
                     </motion.span>
                   </div>
 
                   {/* Corner accent */}
-                  <div className={`absolute top-0 right-0 w-16 h-16 
+                  <div className={`absolute top-0 right-0 w-20 h-20 
                     bg-gradient-to-bl ${tile.gradient} opacity-50 group-hover:opacity-80 transition-opacity
                   `} />
                 </motion.div>

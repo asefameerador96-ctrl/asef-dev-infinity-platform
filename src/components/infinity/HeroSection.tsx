@@ -17,16 +17,29 @@ const HeroSection = () => {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
+  // Content animations
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  
+  // Video container - narrows down and fades as you scroll
+  const videoScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.6]);
+  const videoWidth = useTransform(scrollYProgress, [0, 0.6], ["100%", "60%"]);
+  const videoOpacity = useTransform(scrollYProgress, [0, 0.5, 0.8], [1, 0.5, 0]);
+  const videoBorderRadius = useTransform(scrollYProgress, [0, 0.6], [0, 40]);
+  const videoY = useTransform(scrollYProgress, [0, 0.6], [0, 100]);
 
   return (
-    <section ref={containerRef} className="relative min-h-[100vh] flex items-center overflow-hidden">
-      {/* Video Background */}
+    <section ref={containerRef} className="relative min-h-[150vh] flex items-start overflow-hidden">
+      {/* Video Background - narrowing effect */}
       <motion.div 
-        style={{ scale }}
-        className="absolute inset-0 z-0"
+        style={{ 
+          scale: videoScale,
+          width: videoWidth,
+          opacity: videoOpacity,
+          borderRadius: videoBorderRadius,
+          y: videoY
+        }}
+        className="fixed top-0 left-1/2 -translate-x-1/2 h-screen z-0 overflow-hidden"
       >
         <video
           autoPlay
@@ -42,8 +55,8 @@ const HeroSection = () => {
 
       {/* Content */}
       <motion.div 
-        style={{ y, opacity }}
-        className="relative z-10 container mx-auto px-6 pt-32"
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-10 container mx-auto px-6 pt-32 min-h-screen flex items-center"
       >
         <div className="max-w-5xl">
           {/* Main Title */}

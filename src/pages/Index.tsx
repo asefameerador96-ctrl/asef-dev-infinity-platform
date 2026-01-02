@@ -3,6 +3,7 @@ import InfinityFooter from "../components/infinity/InfinityFooter";
 import HeroSection from "../components/infinity/HeroSection";
 import BrandChapterRail from "../components/infinity/BrandChapterRail";
 import BrandTiles from "../components/infinity/BrandTiles";
+import LuxurySection from "../components/infinity/LuxurySection";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
         <HeroSection />
         <BrandChapterRail />
         <BrandTiles />
+        <LuxurySection />
       </main>
       
       <InfinityFooter />
