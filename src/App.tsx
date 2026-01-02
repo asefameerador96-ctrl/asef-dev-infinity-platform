@@ -16,6 +16,9 @@ import CustomerCare from "./pages/about/CustomerCare";
 import StoreLocator from "./pages/about/StoreLocator";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import Nova from "./pages/brands/Nova";
+import LiveMoment from "./pages/brands/LiveMoment";
+import XForce from "./pages/brands/XForce";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +41,9 @@ const App = () => (
           <Route path="/about/store-locator" element={<StoreLocator />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/brands/nova" element={<Nova />} />
+          <Route path="/brands/live-moment" element={<LiveMoment />} />
+          <Route path="/brands/xforce" element={<XForce />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
