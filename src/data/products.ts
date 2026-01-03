@@ -1,5 +1,19 @@
 // Product Data for Infinity Store
 
+// Product Images
+import ashtrayBase from '@/assets/products/ashtray-base.jpg';
+import lighterBase from '@/assets/products/lighter-base.jpg';
+import tshirtBase from '@/assets/products/tshirt-base.jpg';
+import jacketBase from '@/assets/products/jacket-base.jpg';
+import coatPinBase from '@/assets/products/coat-pin-base.jpg';
+import perfumeBase from '@/assets/products/perfume-base.jpg';
+import cigaretteBoxBase from '@/assets/products/cigarette-box-base.jpg';
+import mugBase from '@/assets/products/mug-base.jpg';
+import posterBase from '@/assets/products/poster-base.jpg';
+import bannerBase from '@/assets/products/banner-base.jpg';
+import paintingBase from '@/assets/products/painting-base.jpg';
+import watchBase from '@/assets/products/watch-base.jpg';
+
 export type Brand = 'nova' | 'xforce' | 'live-moment';
 
 export interface Product {
@@ -40,13 +54,30 @@ export const categories: Category[] = [
   { id: '13', name: 'Limited Edition Watches', slug: 'limited-watches', description: 'Collector timepieces', icon: '⌚' },
 ];
 
+// Image mapping for categories
+const categoryImages: Record<string, string> = {
+  'ashtray': ashtrayBase,
+  'lighter': lighterBase,
+  'tshirt': tshirtBase,
+  'jacket': jacketBase,
+  'coat-pin': coatPinBase,
+  'perfume': perfumeBase,
+  'cigarette-box': cigaretteBoxBase,
+  'mug': mugBase,
+  'poster': posterBase,
+  'banner': bannerBase,
+  'luxury-paintings': paintingBase,
+  'luxury-perfume': perfumeBase,
+  'limited-watches': watchBase,
+};
+
 // Generate products for each category and brand
 const generateProducts = (): Product[] => {
   const products: Product[] = [];
   const brands: Brand[] = ['nova', 'xforce', 'live-moment'];
   
   categories.forEach((category) => {
-    brands.forEach((brand, brandIndex) => {
+    brands.forEach((brand) => {
       // Generate 3 products per brand per category
       for (let i = 1; i <= 3; i++) {
         const basePrice = getBasePrice(category.slug);
@@ -62,8 +93,8 @@ const generateProducts = (): Product[] => {
           originalPrice: Math.round(originalPrice),
           discountedPrice,
           discountPercentage,
-          image: `/placeholder.svg`,
-          hoverImage: `/placeholder.svg`,
+          image: categoryImages[category.slug] || '/placeholder.svg',
+          hoverImage: categoryImages[category.slug] || '/placeholder.svg',
           description: `Premium ${category.name.toLowerCase()} from ${getBrandDisplayName(brand)} collection. Exclusive design with brand logo.`,
           inStock: Math.random() > 0.2,
         });
