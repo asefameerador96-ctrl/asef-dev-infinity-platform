@@ -4,6 +4,35 @@ import { ShoppingBag, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Product, formatBDT, getBrandColor, getBrandBgClass } from "@/data/products";
 
+// Lifestyle images for hover effect
+import ashtrayLifestyle from "@/assets/products/ashtray-lifestyle.jpg";
+import lighterLifestyle from "@/assets/products/lighter-lifestyle.jpg";
+import tshirtLifestyle from "@/assets/products/tshirt-lifestyle.jpg";
+import jacketLifestyle from "@/assets/products/jacket-lifestyle.jpg";
+import coatPinLifestyle from "@/assets/products/coat-pin-lifestyle.jpg";
+import perfumeLifestyle from "@/assets/products/perfume-lifestyle.jpg";
+import cigaretteBoxLifestyle from "@/assets/products/cigarette-box-lifestyle.jpg";
+import mugLifestyle from "@/assets/products/mug-lifestyle.jpg";
+import posterLifestyle from "@/assets/products/poster-lifestyle.jpg";
+import bannerLifestyle from "@/assets/products/banner-lifestyle.jpg";
+import paintingLifestyle from "@/assets/products/painting-lifestyle.jpg";
+import watchLifestyle from "@/assets/products/watch-lifestyle.jpg";
+
+const lifestyleImages: Record<string, string> = {
+  'ashtray': ashtrayLifestyle,
+  'lighter': lighterLifestyle,
+  'tshirt': tshirtLifestyle,
+  'jacket': jacketLifestyle,
+  'coat-pin': coatPinLifestyle,
+  'perfume': perfumeLifestyle,
+  'cigarette-box': cigaretteBoxLifestyle,
+  'mug': mugLifestyle,
+  'poster': posterLifestyle,
+  'banner': bannerLifestyle,
+  'luxury-paintings': paintingLifestyle,
+  'limited-watches': watchLifestyle,
+};
+
 interface ProductCardProps {
   product: Product;
   index?: number;
@@ -49,18 +78,11 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           animate={{ x: isHovered ? "0%" : "100%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <div className="w-full h-full bg-gradient-to-br from-muted to-card flex items-center justify-center">
-            <div className="text-center p-4">
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-6xl mb-4"
-              >
-                👤
-              </motion.div>
-              <p className="text-sm text-muted-foreground">Model Preview</p>
-            </div>
-          </div>
+          <img
+            src={lifestyleImages[product.category] || lifestyleImages['tshirt']}
+            alt={`${product.name} lifestyle`}
+            className="w-full h-full object-cover"
+          />
         </motion.div>
 
         {/* Quick Actions */}
