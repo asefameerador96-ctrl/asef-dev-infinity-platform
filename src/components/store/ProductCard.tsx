@@ -91,7 +91,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           animate={{ opacity: isHovered ? 1 : 0 }}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"
         >
-          <Link to={`/product/${product.id}`}>
+          <Link to={`/store/product/${product.id}`}>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -100,39 +100,45 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               <Eye className="w-5 h-5" />
             </motion.button>
           </Link>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-3 rounded-full glass neon-border"
-          >
-            <ShoppingBag className="w-5 h-5" />
-          </motion.button>
+          <Link to={`/store/product/${product.id}`}>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full glass neon-border"
+            >
+              <ShoppingBag className="w-5 h-5" />
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
-        <h3 className={`font-display font-semibold text-lg mb-1 ${getBrandColor(product.brand)}`}>
-          {product.name}
-        </h3>
-        
-        <div className="flex items-center gap-3 mt-2">
-          <span className="text-xl font-bold text-foreground">
-            {formatBDT(product.discountedPrice)}
-          </span>
-          <span className="text-sm text-muted-foreground line-through">
-            {formatBDT(product.originalPrice)}
-          </span>
+      <Link to={`/store/product/${product.id}`} className="block">
+        <div className="p-4">
+          <h3 className={`font-display font-semibold text-lg mb-1 ${getBrandColor(product.brand)}`}>
+            {product.name}
+          </h3>
+          
+          <div className="flex items-center gap-3 mt-2">
+            <span className="text-xl font-bold text-foreground">
+              {formatBDT(product.discountedPrice)}
+            </span>
+            <span className="text-sm text-muted-foreground line-through">
+              {formatBDT(product.originalPrice)}
+            </span>
+          </div>
         </div>
+      </Link>
 
-        {/* Stay Tuned Button */}
-        <Link to="/waitlist">
+      {/* View Product Button */}
+      <div className="px-4 pb-4">
+        <Link to={`/store/product/${product.id}`}>
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full mt-4 py-3 px-4 rounded-xl font-medium text-sm neon-border hover:neon-glow transition-all bg-card/50"
+            className="w-full py-3 px-4 rounded-xl font-medium text-sm neon-border hover:neon-glow transition-all bg-card/50"
           >
-            Stay Tuned
+            View Product
           </motion.button>
         </Link>
       </div>

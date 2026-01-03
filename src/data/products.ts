@@ -16,6 +16,8 @@ import watchBase from '@/assets/products/watch-base.jpg';
 
 export type Brand = 'nova' | 'xforce' | 'live-moment';
 
+export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'One Size';
+
 export interface Product {
   id: string;
   name: string;
@@ -26,7 +28,15 @@ export interface Product {
   discountPercentage: number;
   image: string;
   hoverImage: string;
+  galleryImages: string[];
   description: string;
+  details: {
+    material?: string;
+    dimensions?: string;
+    weight?: string;
+    features?: string[];
+  };
+  sizes: Size[];
   inStock: boolean;
 }
 
@@ -71,6 +81,38 @@ const categoryImages: Record<string, string> = {
   'limited-watches': watchBase,
 };
 
+// Get sizes based on category
+const getSizesForCategory = (category: string): Size[] => {
+  const clothingSizes: Size[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+  const oneSizeCategories = ['ashtray', 'lighter', 'coat-pin', 'perfume', 'cigarette-box', 'mug', 'poster', 'banner', 'luxury-paintings', 'luxury-perfume', 'limited-watches'];
+  
+  if (oneSizeCategories.includes(category)) {
+    return ['One Size'];
+  }
+  return clothingSizes;
+};
+
+// Get product details based on category
+const getProductDetails = (category: string, brand: Brand) => {
+  const details: Record<string, { material?: string; dimensions?: string; weight?: string; features?: string[] }> = {
+    'ashtray': { material: 'Premium Ceramic with Gold Trim', dimensions: '12cm x 12cm', weight: '350g', features: ['Heat resistant', 'Easy to clean', 'Brand embossed'] },
+    'lighter': { material: 'Brushed Metal Alloy', dimensions: '6cm x 3cm', weight: '85g', features: ['Refillable', 'Wind resistant', 'Lifetime warranty'] },
+    'tshirt': { material: '100% Egyptian Cotton', weight: '180gsm', features: ['Pre-shrunk', 'Double stitched', 'Printed logo'] },
+    'jacket': { material: 'Premium Leather / Polyester Blend', weight: '1.2kg', features: ['Water resistant', 'Inner pockets', 'Branded buttons'] },
+    'coat-pin': { material: '18K Gold Plated', dimensions: '3cm x 2cm', weight: '15g', features: ['Hypoallergenic', 'Secure clasp', 'Gift box included'] },
+    'perfume': { material: 'Glass Bottle with Metal Cap', dimensions: '100ml', weight: '280g', features: ['Long lasting', 'Unique blend', 'Designer bottle'] },
+    'cigarette-box': { material: 'Aluminum Alloy', dimensions: '10cm x 6cm x 2cm', weight: '95g', features: ['Holds 20 cigarettes', 'Magnetic closure', 'Scratch resistant'] },
+    'mug': { material: 'Bone China', dimensions: '350ml capacity', weight: '320g', features: ['Microwave safe', 'Dishwasher safe', 'Premium finish'] },
+    'poster': { material: 'Archival Quality Paper', dimensions: 'A2 (42cm x 59cm)', weight: '200gsm', features: ['Fade resistant', 'Museum quality', 'Limited edition'] },
+    'banner': { material: 'Premium Vinyl', dimensions: '150cm x 50cm', weight: '500g', features: ['UV protected', 'Reinforced edges', 'Indoor/Outdoor'] },
+    'luxury-paintings': { material: 'Canvas with Oak Frame', dimensions: '100cm x 80cm', weight: '5kg', features: ['Hand finished', 'Certificate of authenticity', 'Gallery quality'] },
+    'luxury-perfume': { material: 'Crystal Bottle with Gold Accents', dimensions: '100ml', weight: '450g', features: ['Exclusive blend', 'Collector edition', 'Leather case'] },
+    'limited-watches': { material: 'Stainless Steel / Sapphire Crystal', dimensions: '42mm case', weight: '180g', features: ['Swiss movement', 'Water resistant 100m', 'Numbered edition'] },
+  };
+  
+  return details[category] || { material: 'Premium Quality', features: ['Exclusive design', 'Brand logo'] };
+};
+
 // Generate products for each category and brand
 const generateProducts = (): Product[] => {
   const products: Product[] = [];
@@ -84,6 +126,7 @@ const generateProducts = (): Product[] => {
         const discountPercentage = Math.floor(Math.random() * 30) + 10; // 10-40%
         const originalPrice = basePrice * (1 + (i * 0.2));
         const discountedPrice = Math.round(originalPrice * (1 - discountPercentage / 100));
+        const categoryImage = categoryImages[category.slug] || '/placeholder.svg';
         
         products.push({
           id: `${category.slug}-${brand}-${i}`,
@@ -93,9 +136,12 @@ const generateProducts = (): Product[] => {
           originalPrice: Math.round(originalPrice),
           discountedPrice,
           discountPercentage,
-          image: categoryImages[category.slug] || '/placeholder.svg',
-          hoverImage: categoryImages[category.slug] || '/placeholder.svg',
+          image: categoryImage,
+          hoverImage: categoryImage,
+          galleryImages: [categoryImage, categoryImage, categoryImage, categoryImage],
           description: `Premium ${category.name.toLowerCase()} from ${getBrandDisplayName(brand)} collection. Exclusive design with brand logo.`,
+          details: getProductDetails(category.slug, brand),
+          sizes: getSizesForCategory(category.slug),
           inStock: Math.random() > 0.2,
         });
       }
@@ -181,6 +227,10 @@ export const getProductsByCategoryAndBrand = (categorySlug: string, brand: Brand
 
 export const getCategoryBySlug = (slug: string): Category | undefined => {
   return categories.find(c => c.slug === slug);
+};
+
+export const getProductById = (id: string): Product | undefined => {
+  return products.find(p => p.id === id);
 };
 
 export const formatBDT = (amount: number): string => {
