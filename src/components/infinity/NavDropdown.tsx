@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { categories } from "@/data/products";
+import { brandLogos } from "@/data/brandLogos";
 
 interface DropdownItem {
   name: string;
   path: string;
   icon?: string;
   gradient?: string;
+  logo?: string;
 }
 
 interface NavDropdownProps {
@@ -21,17 +23,20 @@ const brandItems: DropdownItem[] = [
   { 
     name: "NOVA", 
     path: "/brands/nova", 
-    gradient: "from-purple-500 to-purple-700" 
+    gradient: "from-cyan-400 to-cyan-600",
+    logo: brandLogos.nova
   },
   { 
     name: "XFORCE", 
     path: "/brands/xforce", 
-    gradient: "from-red-500 to-red-700" 
+    gradient: "from-red-500 to-blue-500",
+    logo: brandLogos.xforce
   },
   { 
     name: "LIVE THE MOMENT", 
     path: "/brands/live-moment", 
-    gradient: "from-yellow-500 to-amber-600" 
+    gradient: "from-green-500 to-pink-500",
+    logo: brandLogos['live-moment']
   },
 ];
 
@@ -92,7 +97,13 @@ const NavDropdown = ({ label, items, isScrolled }: NavDropdownProps) => {
                       {item.icon && (
                         <span className="text-xl">{item.icon}</span>
                       )}
-                      {item.gradient ? (
+                      {item.logo ? (
+                        <img 
+                          src={item.logo} 
+                          alt={item.name} 
+                          className="h-8 w-auto max-w-[140px] object-contain"
+                        />
+                      ) : item.gradient ? (
                         <span className={`font-display font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}>
                           {item.name}
                         </span>

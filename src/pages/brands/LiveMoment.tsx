@@ -5,6 +5,7 @@ import InfinityFooter from "@/components/infinity/InfinityFooter";
 import { ArrowRight, Camera, Heart, Share2, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import liveMomentVideo from "@/assets/live-moment-brand.mp4";
+import liveMomentLogo from "@/assets/brands/live-moment-logo.png";
 
 const LiveMoment = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -99,16 +100,14 @@ const LiveMoment = () => {
               <Camera className="w-14 h-14 text-live-moment mx-auto" />
             </motion.div>
 
-            <motion.h1
+            <motion.img
+              src={liveMomentLogo}
+              alt="LIVE THE MOMENT"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.2 }}
-              className="font-display text-6xl md:text-[10rem] lg:text-[14rem] font-bold text-gradient-live tracking-tighter leading-none"
-            >
-              LIVE THE
-              <br />
-              MOMENT
-            </motion.h1>
+              className="h-32 md:h-48 lg:h-64 w-auto object-contain drop-shadow-2xl"
+            />
 
             <motion.p
               initial={{ opacity: 0 }}
