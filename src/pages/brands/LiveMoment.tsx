@@ -6,6 +6,9 @@ import { ArrowRight, Camera, Heart, Share2, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import liveMomentVideo from "@/assets/live-moment-brand.mp4";
 import liveMomentLogo from "@/assets/brands/live-moment-logo.png";
+import liveGallery1 from "@/assets/brands/live-gallery-1.mp4";
+import liveGallery2 from "@/assets/brands/live-gallery-2.mp4";
+import liveGallery3 from "@/assets/brands/live-gallery-3.mp4";
 
 const LiveMoment = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,10 +52,10 @@ const LiveMoment = () => {
   ];
 
   const moments = [
-    { title: "Golden Hour", description: "Sunset memories" },
-    { title: "First Light", description: "Dawn's embrace" },
-    { title: "Midnight Spark", description: "Night's magic" },
-    { title: "Eternal Now", description: "Present perfection" },
+    { title: "Golden Hour", description: "Sunset memories", video: liveGallery1 },
+    { title: "First Light", description: "Dawn's embrace", video: liveGallery2 },
+    { title: "Midnight Spark", description: "Night's magic", video: liveGallery3 },
+    { title: "Eternal Now", description: "Present perfection", video: liveMomentVideo },
   ];
 
   return (
@@ -198,14 +201,14 @@ const LiveMoment = () => {
                 className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer"
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <video
+              <video
                   autoPlay
                   loop
                   muted
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 >
-                  <source src={liveMomentVideo} type="video/mp4" />
+                  <source src={moment.video} type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">

@@ -6,6 +6,9 @@ import { ArrowRight, Zap, Target, Gauge, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import xforceVideo from "@/assets/xforce-brand.mp4";
 import xforceLogo from "@/assets/brands/xforce-logo.jpg";
+import xforceGallery1 from "@/assets/brands/xforce-gallery-1.mp4";
+import xforceGallery2 from "@/assets/brands/xforce-gallery-2.mp4";
+import xforceGallery3 from "@/assets/brands/xforce-gallery-3.mp4";
 
 const XForce = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -196,7 +199,11 @@ const XForce = () => {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {["Raw Power", "Pure Precision", "Peak Performance"].map((title, i) => (
+            {[
+              { title: "Raw Power", video: xforceGallery1 },
+              { title: "Pure Precision", video: xforceGallery2 },
+              { title: "Peak Performance", video: xforceGallery3 }
+            ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, rotateY: -30, x: -100 }}
@@ -208,7 +215,7 @@ const XForce = () => {
                   scale: 1.05,
                   z: 50,
                 }}
-                className="relative aspect-[4/5] rounded-3xl overflow-hidden group cursor-pointer"
+                className="relative aspect-[3/4] rounded-3xl overflow-hidden group cursor-pointer"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <video
@@ -218,11 +225,11 @@ const XForce = () => {
                   playsInline
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 >
-                  <source src={xforceVideo} type="video/mp4" />
+                  <source src={item.video} type="video/mp4" />
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-xforce/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="font-display text-3xl font-bold text-white">{title}</h3>
+                  <h3 className="font-display text-3xl font-bold text-white">{item.title}</h3>
                   <motion.div
                     className="h-1 bg-xforce mt-4 origin-left"
                     initial={{ scaleX: 0 }}

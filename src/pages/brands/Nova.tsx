@@ -6,6 +6,9 @@ import { ArrowRight, Sparkles, Zap, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import novaBrandVideo from "@/assets/nova-brand.mp4";
 import novaLogo from "@/assets/brands/nova-logo.png";
+import novaGallery1 from "@/assets/brands/nova-gallery-1.mp4";
+import novaGallery2 from "@/assets/brands/nova-gallery-2.mp4";
+import novaGallery3 from "@/assets/brands/nova-gallery-3.mp4";
 
 const Nova = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -178,7 +181,7 @@ const Nova = () => {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Gallery Item 1 */}
+            {/* Gallery Item 1 - Cosmic Glow */}
             <motion.div
               style={{ y: galleryY1, rotate: galleryRotate1 }}
               whileHover={{ scale: 1.05, zIndex: 10 }}
@@ -191,7 +194,7 @@ const Nova = () => {
                 playsInline
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               >
-                <source src={novaBrandVideo} type="video/mp4" />
+                <source src={novaGallery1} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-nova/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -204,7 +207,7 @@ const Nova = () => {
               />
             </motion.div>
 
-            {/* Gallery Item 2 */}
+            {/* Gallery Item 2 - Holographic Touch */}
             <motion.div
               style={{ y: galleryY2, rotate: galleryRotate2 }}
               whileHover={{ scale: 1.05, zIndex: 10 }}
@@ -216,9 +219,8 @@ const Nova = () => {
                 muted
                 playsInline
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                style={{ transform: "scaleX(-1)" }}
               >
-                <source src={novaBrandVideo} type="video/mp4" />
+                <source src={novaGallery2} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-nova/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -227,7 +229,7 @@ const Nova = () => {
               </div>
             </motion.div>
 
-            {/* Gallery Item 3 */}
+            {/* Gallery Item 3 - Galaxy Vision */}
             <motion.div
               style={{ y: galleryY3, rotate: galleryRotate1 }}
               whileHover={{ scale: 1.05, zIndex: 10 }}
@@ -240,7 +242,7 @@ const Nova = () => {
                 playsInline
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               >
-                <source src={novaBrandVideo} type="video/mp4" />
+                <source src={novaGallery3} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-nova/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
