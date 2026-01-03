@@ -5,6 +5,7 @@ import InfinityFooter from "@/components/infinity/InfinityFooter";
 import { ArrowRight, Sparkles, Zap, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import novaBrandVideo from "@/assets/nova-brand.mp4";
+import novaLogo from "@/assets/brands/nova-logo.png";
 
 const Nova = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -94,14 +95,14 @@ const Nova = () => {
               <Sparkles className="w-16 h-16 text-nova mx-auto" />
             </motion.div>
 
-            <motion.h1
+            <motion.img
+              src={novaLogo}
+              alt="NOVA"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="font-display text-8xl md:text-[12rem] lg:text-[16rem] font-bold text-gradient-nova tracking-tighter"
-            >
-              NOVA
-            </motion.h1>
+              className="h-24 md:h-40 lg:h-56 w-auto object-contain drop-shadow-2xl"
+            />
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}

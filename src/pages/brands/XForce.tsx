@@ -5,6 +5,7 @@ import InfinityFooter from "@/components/infinity/InfinityFooter";
 import { ArrowRight, Zap, Target, Gauge, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import xforceVideo from "@/assets/xforce-brand.mp4";
+import xforceLogo from "@/assets/brands/xforce-logo.jpg";
 
 const XForce = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -114,14 +115,14 @@ const XForce = () => {
               <Zap className="w-20 h-20 text-xforce mx-auto" />
             </motion.div>
 
-            <motion.h1
+            <motion.img
+              src={xforceLogo}
+              alt="XFORCE"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="font-display text-8xl md:text-[12rem] lg:text-[18rem] font-bold text-gradient-xforce tracking-tighter"
-            >
-              XFORCE
-            </motion.h1>
+              className="h-24 md:h-40 lg:h-56 w-auto object-contain drop-shadow-2xl"
+            />
 
             <motion.p
               initial={{ opacity: 0, x: 100 }}
