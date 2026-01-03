@@ -19,6 +19,8 @@ import TermsOfService from "./pages/TermsOfService";
 import Nova from "./pages/brands/Nova";
 import LiveMoment from "./pages/brands/LiveMoment";
 import XForce from "./pages/brands/XForce";
+import CategoryStore from "./pages/store/CategoryStore";
+import Waitlist from "./pages/Waitlist";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,8 @@ const App = () => (
           <Route path="/brands/nova" element={<Nova />} />
           <Route path="/brands/live-moment" element={<LiveMoment />} />
           <Route path="/brands/xforce" element={<XForce />} />
+          <Route path="/store/:categorySlug" element={<CategoryStore />} />
+          <Route path="/waitlist" element={<Waitlist />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
