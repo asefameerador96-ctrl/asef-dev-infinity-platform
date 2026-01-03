@@ -130,7 +130,7 @@ const XForce = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="text-2xl md:text-4xl text-foreground/80 font-light mt-4 max-w-2xl"
             >
-              Power, precision, performance — tuned for limits.
+              BOLD NEW EXPERIENCE
             </motion.p>
 
             <motion.div
@@ -153,7 +153,7 @@ const XForce = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border border-xforce/50 text-xforce rounded-full font-medium"
               >
-                Track Events
+                View Experience
               </motion.button>
             </motion.div>
           </motion.div>
@@ -405,7 +405,7 @@ const XForce = () => {
               whileTap={{ scale: 0.95 }}
               className="px-12 py-5 border border-xforce/50 text-xforce rounded-full font-medium text-lg"
             >
-              Performance Events
+              Performance Experience
             </motion.button>
           </div>
         </motion.div>

@@ -147,7 +147,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="group px-8 py-4 neon-border rounded-full font-display font-semibold text-lg flex items-center gap-3 hover:neon-glow transition-all"
               >
-                EVENTS
+                EXPERIENCE
                 <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </motion.button>
             </Link>

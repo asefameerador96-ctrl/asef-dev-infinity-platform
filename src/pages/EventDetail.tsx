@@ -26,9 +26,9 @@ const EventDetail = () => {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Event Not Found</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Experience Not Found</h1>
           <Link to="/events" className="text-purple-400 hover:underline">
-            Back to Events
+            Back to Experiences
           </Link>
         </div>
       </div>
@@ -92,7 +92,7 @@ const EventDetail = () => {
               className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
             >
               <ArrowLeft size={20} />
-              Back to Events
+              Back to Experiences
             </Link>
 
             {/* Event info */}

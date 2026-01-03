@@ -9,7 +9,7 @@ interface EventFiltersProps {
 
 const EventFilters = ({ activeFilter, onFilterChange }: EventFiltersProps) => {
   const filters: { id: FilterType; label: string }[] = [
-    { id: 'all', label: 'All Events' },
+    { id: 'all', label: 'All Experiences' },
     { id: 'upcoming', label: 'Upcoming' },
     { id: 'past', label: 'Past' },
   ];
