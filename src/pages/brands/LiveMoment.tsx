@@ -115,7 +115,7 @@ const LiveMoment = () => {
               transition={{ duration: 1, delay: 0.6 }}
               className="text-2xl md:text-3xl text-foreground/80 font-light mt-6 max-w-xl"
             >
-              Capture now. Share instantly. Feel everything.
+              LIVE THE MOMENT
             </motion.p>
 
             <motion.div
@@ -138,7 +138,7 @@ const LiveMoment = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border border-live-moment/50 text-live-moment rounded-full font-medium"
               >
-                Experience Events
+                View Experience
               </motion.button>
             </motion.div>
           </motion.div>
@@ -318,7 +318,7 @@ const LiveMoment = () => {
             Make Every Second Count
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Join our community of moment-makers. Access exclusive drops, live events, and instant connections.
+            Join our community of moment-makers. Access exclusive drops, live experiences, and instant connections.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/category/live-moment">
@@ -335,7 +335,7 @@ const LiveMoment = () => {
               whileTap={{ scale: 0.95 }}
               className="px-12 py-5 border border-live-moment/50 text-live-moment rounded-full font-medium text-lg"
             >
-              Live Events
+              Live Experience
             </motion.button>
           </div>
         </motion.div>

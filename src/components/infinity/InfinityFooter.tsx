@@ -12,7 +12,7 @@ const footerLinks = {
   shop: [
     { name: "All Products", path: "/products" },
     { name: "New Arrivals", path: "/products?filter=new" },
-    { name: "Events", path: "/events" },
+    { name: "Experience", path: "/events" },
   ],
   support: [
     { name: "Customer Care", path: "/about/customer-care" },

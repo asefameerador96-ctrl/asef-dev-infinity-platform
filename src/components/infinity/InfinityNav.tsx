@@ -72,7 +72,7 @@ const InfinityNav = () => {
             {/* Products Dropdown */}
             <NavDropdown label="Products" items={productItems} isScrolled={isScrolled} />
 
-            {/* Events Link */}
+            {/* Experience Link */}
             <Link to="/events" className="relative group">
               <motion.span
                 className={`font-medium text-sm tracking-wide transition-colors ${
@@ -82,7 +82,7 @@ const InfinityNav = () => {
                 }`}
                 whileHover={{ y: -2 }}
               >
-                Events
+                Experience
               </motion.span>
               {location.pathname === "/events" && (
                 <motion.div
@@ -204,7 +204,7 @@ const InfinityNav = () => {
                 </div>
               </motion.div>
 
-              {/* Events */}
+              {/* Experience */}
               <motion.div
                 variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
               >
@@ -214,7 +214,7 @@ const InfinityNav = () => {
                     location.pathname === "/events" ? "text-gradient" : "text-foreground/50 hover:text-foreground"
                   }`}
                 >
-                  Events
+                  Experience
                 </Link>
               </motion.div>
 

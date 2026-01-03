@@ -110,7 +110,7 @@ const Nova = () => {
               transition={{ duration: 1, delay: 0.6 }}
               className="text-2xl md:text-4xl text-foreground/80 font-light mt-4 max-w-2xl"
             >
-              Future-ready drops. Cosmic motion. Neon clarity.
+              BORN FOR MORE
             </motion.p>
 
             <motion.div
@@ -133,7 +133,7 @@ const Nova = () => {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border border-nova/50 text-nova rounded-full font-medium"
               >
-                View Events
+                View Experience
               </motion.button>
             </motion.div>
           </motion.div>
@@ -346,7 +346,7 @@ const Nova = () => {
             Enter the Nova Universe
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Join exclusive events, access limited drops, and become part of the cosmic community.
+            Join exclusive experiences, access limited drops, and become part of the cosmic community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/category/nova">
@@ -363,7 +363,7 @@ const Nova = () => {
               whileTap={{ scale: 0.95 }}
               className="px-12 py-5 border border-nova/50 text-nova rounded-full font-medium text-lg"
             >
-              Upcoming Events
+              Upcoming Experience
             </motion.button>
           </div>
         </motion.div>

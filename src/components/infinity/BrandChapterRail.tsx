@@ -5,40 +5,40 @@ const brands = [
   {
     id: "nova",
     name: "NOVA",
-    tagline: "Future-ready drops. Cosmic motion. Neon clarity.",
+    tagline: "BORN FOR MORE",
     description: "Nova represents the cutting edge of style and innovation. Every piece is designed for those who dare to lead, not follow.",
     color: "nova",
     path: "/brands/nova",
     stats: [
       { label: "Products", value: "48" },
       { label: "Collections", value: "12" },
-      { label: "Events", value: "8" },
+      { label: "Experience", value: "8" },
     ]
   },
   {
     id: "live-the-moment",
     name: "LIVE THE MOMENT",
-    tagline: "Capture now. Share instantly. Feel everything.",
+    tagline: "LIVE THE MOMENT",
     description: "For those who live in the present. Every design captures the essence of fleeting moments and makes them eternal.",
     color: "live-moment",
     path: "/brands/live-moment",
     stats: [
       { label: "Products", value: "36" },
       { label: "Collections", value: "9" },
-      { label: "Events", value: "15" },
+      { label: "Experience", value: "15" },
     ]
   },
   {
     id: "xforce",
     name: "XFORCE",
-    tagline: "Power, precision, performance — tuned for limits.",
+    tagline: "BOLD NEW EXPERIENCE",
     description: "Built for champions. Xforce combines aggressive aesthetics with uncompromising quality for peak performance lifestyle.",
     color: "xforce",
     path: "/brands/xforce",
     stats: [
       { label: "Products", value: "52" },
       { label: "Collections", value: "14" },
-      { label: "Events", value: "22" },
+      { label: "Experience", value: "22" },
     ]
   }
 ];

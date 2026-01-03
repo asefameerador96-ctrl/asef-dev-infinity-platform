@@ -74,7 +74,7 @@ const Events = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              EVENTS
+              EXPERIENCE
             </motion.h1>
             
             <motion.p 
@@ -114,7 +114,7 @@ const Events = () => {
               className="flex items-center gap-3 mb-8"
             >
               <Sparkles className="w-6 h-6 text-yellow-400" />
-              <h2 className="text-3xl font-bold text-white">Featured Events</h2>
+              <h2 className="text-3xl font-bold text-white">Featured Experiences</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -135,7 +135,7 @@ const Events = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-white mb-8">All Events</h2>
+            <h2 className="text-4xl font-bold text-white mb-8">All Experiences</h2>
             <EventFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
           </motion.div>
 
@@ -154,7 +154,7 @@ const Events = () => {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <p className="text-gray-500 text-xl">No events found</p>
+              <p className="text-gray-500 text-xl">No experiences found</p>
             </motion.div>
           )}
         </div>
@@ -174,7 +174,7 @@ const Events = () => {
             Don't Miss Out
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Join our newsletter to be the first to know about upcoming events and exclusive offers.
+            Join our newsletter to be the first to know about upcoming experiences and exclusive offers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <input
