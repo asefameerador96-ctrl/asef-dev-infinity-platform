@@ -3,13 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ShoppingBag, User } from "lucide-react";
 import InfinityLogo from "./InfinityLogo";
-
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Brands", path: "/brands" },
-  { name: "Products", path: "/products" },
-  { name: "Events", path: "/events" },
-];
+import { NavDropdown, brandItems, productItems } from "./NavDropdown";
 
 const InfinityNav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,30 +46,51 @@ const InfinityNav = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="relative group"
+            {/* Home Link */}
+            <Link to="/" className="relative group">
+              <motion.span
+                className={`font-medium text-sm tracking-wide transition-colors ${
+                  location.pathname === "/" 
+                    ? "text-primary" 
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+                whileHover={{ y: -2 }}
               >
-                <motion.span
-                  className={`font-medium text-sm tracking-wide transition-colors ${
-                    location.pathname === link.path 
-                      ? "text-primary" 
-                      : "text-foreground/70 hover:text-foreground"
-                  }`}
-                  whileHover={{ y: -2 }}
-                >
-                  {link.name}
-                </motion.span>
-                {location.pathname === link.path && (
-                  <motion.div
-                    layoutId="navIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-neon rounded-full"
-                  />
-                )}
-              </Link>
-            ))}
+                Home
+              </motion.span>
+              {location.pathname === "/" && (
+                <motion.div
+                  layoutId="navIndicator"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                />
+              )}
+            </Link>
+
+            {/* Brands Dropdown */}
+            <NavDropdown label="Brands" items={brandItems} isScrolled={isScrolled} />
+
+            {/* Products Dropdown */}
+            <NavDropdown label="Products" items={productItems} isScrolled={isScrolled} />
+
+            {/* Events Link */}
+            <Link to="/events" className="relative group">
+              <motion.span
+                className={`font-medium text-sm tracking-wide transition-colors ${
+                  location.pathname === "/events" 
+                    ? "text-primary" 
+                    : "text-foreground/70 hover:text-foreground"
+                }`}
+                whileHover={{ y: -2 }}
+              >
+                Events
+              </motion.span>
+              {location.pathname === "/events" && (
+                <motion.div
+                  layoutId="navIndicator"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"
+                />
+              )}
+            </Link>
           </nav>
 
           {/* Right Actions */}
@@ -128,41 +143,84 @@ const InfinityNav = () => {
           >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" />
             <motion.nav
-              className="relative flex flex-col items-center justify-center h-full gap-8"
+              className="relative flex flex-col items-center justify-center h-full gap-6 overflow-y-auto py-8"
               initial="closed"
               animate="open"
               exit="closed"
               variants={{
-                open: { transition: { staggerChildren: 0.1 } },
-                closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
+                open: { transition: { staggerChildren: 0.05 } },
+                closed: { transition: { staggerChildren: 0.03, staggerDirection: -1 } }
               }}
             >
-              {navLinks.map((link) => (
-                <motion.div
-                  key={link.path}
-                  variants={{
-                    open: { opacity: 1, y: 0 },
-                    closed: { opacity: 0, y: 20 }
-                  }}
-                >
-                  <Link
-                    to={link.path}
-                    className={`text-4xl font-display font-bold tracking-tight ${
-                      location.pathname === link.path 
-                        ? "text-gradient" 
-                        : "text-foreground/50 hover:text-foreground"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+              {/* Home */}
               <motion.div
-                variants={{
-                  open: { opacity: 1, y: 0 },
-                  closed: { opacity: 0, y: 20 }
-                }}
-                className="flex gap-4 mt-8"
+                variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
+              >
+                <Link
+                  to="/"
+                  className={`text-3xl font-display font-bold tracking-tight ${
+                    location.pathname === "/" ? "text-gradient" : "text-foreground/50 hover:text-foreground"
+                  }`}
+                >
+                  Home
+                </Link>
+              </motion.div>
+
+              {/* Brands Section */}
+              <motion.div
+                variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
+                className="text-center"
+              >
+                <p className="text-sm text-muted-foreground mb-2">Brands</p>
+                <div className="flex flex-col gap-2">
+                  {brandItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`text-2xl font-display font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Products Section */}
+              <motion.div
+                variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
+                className="text-center"
+              >
+                <p className="text-sm text-muted-foreground mb-2">Products</p>
+                <div className="flex flex-wrap justify-center gap-2 max-w-xs">
+                  {productItems.slice(0, 6).map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="text-sm font-medium text-foreground/70 hover:text-foreground px-3 py-1 rounded-full border border-border"
+                    >
+                      {item.icon} {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Events */}
+              <motion.div
+                variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
+              >
+                <Link
+                  to="/events"
+                  className={`text-3xl font-display font-bold tracking-tight ${
+                    location.pathname === "/events" ? "text-gradient" : "text-foreground/50 hover:text-foreground"
+                  }`}
+                >
+                  Events
+                </Link>
+              </motion.div>
+
+              <motion.div
+                variants={{ open: { opacity: 1, y: 0 }, closed: { opacity: 0, y: 20 } }}
+                className="flex gap-4 mt-4"
               >
                 <Link
                   to="/auth"
